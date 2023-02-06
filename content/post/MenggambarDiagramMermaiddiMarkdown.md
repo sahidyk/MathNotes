@@ -1387,40 +1387,56 @@ merge newbranch
 Sintaks untuk menggunakan **gravizo** adalah
 
 ```
-![Teks alternatif](https://g.gravizo.com/svg? <perintah> <ID-objek> { <elemen-elemen objek> })
+![Alt text](https://g.gravizo.com/source/<custom_mark>?<url_source_url_encoded>)
+<details><summary></summary>
+<perintah> <ID-objek> { <elemen-elemen objek> })
+</details>
 ```
 
 dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
+
+![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_mark10
+ digraph D {  A -> {B, C, D} -> {F} }
+custom_mark10
+</details>
 
  ![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
 custom_mark10
-  digraph G {
-    size ="4,4"
-    main [shape=box]
-    main -> parse [weight=8]
-    parse -> execute
-    main -> init [style=dotted]
-    main -> cleanup
-    execute -> { make_string; printf}
-    init -> make_string
-    edge [color=red]
-    main -> printf [style=bold,label="100 times"]
-    make_string [label="make a string"]
-    node [shape=box,style=filled,color=".7 .3 1.0"]
-    execute -> compare
-  }
+  digraph G {size ="4,4"; 
+  main [shape=box];    
+  main -> parse [weight=8];    
+  parse -> execute;    
+  main -> init [style=dotted];   
+  main -> cleanup;    
+  execute -> { make_string; printf}    
+  init -> make_string;    edge [color=red];    
+  main -> printf [style=bold,label="100 times"];    
+  make_string [label="make a string"];    
+  node [shape=box,style=filled,color=".7 .3 1.0"];    
+  execute -> compare;  }
 custom_mark10
 </details>
-  
-![ ](https://g.gravizo.com/svg? digraph D {  A -> {B, C, D} -> {F} })
 
-![Diagram Proses](https://g.gravizo.com/svg?  digraph G {size ="4,4"; main [shape=box];    main -> parse [weight=8];    parse -> execute;    main -> init [style=dotted];    main -> cleanup;    execute -> { make_string; printf}    init -> make_string;    edge [color=red];    main -> printf [style=bold,label="100 times"];    make_string [label="make a string"];    node [shape=box,style=filled,color=".7 .3 1.0"];    execute -> compare;  } )
+![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_mark10
+ digraph G {subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+custom_mark10
+</details>
 
-![](https://g.gravizo.com/svg? digraph G {subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;})
-
-![](https://g.gravizo.com/svg? digraph G { main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;})
+![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_mark10
+ digraph G { main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
+custom_mark10
+</details>
 
 ![Struktur Organisasi](https://g.gravizo.com/svg? digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
 
