@@ -1403,10 +1403,10 @@ custom_mark10
 custom_mark10
 </details>
 
- ![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+ ![Alt text](https://g.gravizo.com/source/custom_mark11?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
-custom_mark10
+custom_mark11
   digraph G {size ="4,4"; 
   main [shape=box];    
   main -> parse [weight=8];    
@@ -1419,23 +1419,23 @@ custom_mark10
   make_string [label="make a string"];    
   node [shape=box,style=filled,color=".7 .3 1.0"];    
   execute -> compare;  }
-custom_mark10
+custom_mark11
 </details>
 
-![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+![Alt text](https://g.gravizo.com/source/custom_mark12?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
-custom_mark10
+custom_mark12
  digraph G {subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
-custom_mark10
+custom_mark12
 </details>
 
-![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+![Alt text](https://g.gravizo.com/source/custom_mark13?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
-custom_mark10
+custom_mark13
  digraph G { main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
-custom_mark10
+custom_mark13
 </details>
 
 ![Struktur Organisasi](https://g.gravizo.com/svg? digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
