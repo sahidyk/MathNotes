@@ -1392,6 +1392,28 @@ Sintaks untuk menggunakan **gravizo** adalah
 
 dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
 
+ ![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_mark10
+  digraph G {
+    size ="4,4"
+    main [shape=box]
+    main -> parse [weight=8]
+    parse -> execute
+    main -> init [style=dotted]
+    main -> cleanup
+    execute -> { make_string; printf}
+    init -> make_string
+    edge [color=red]
+    main -> printf [style=bold,label="100 times"]
+    make_string [label="make a string"]
+    node [shape=box,style=filled,color=".7 .3 1.0"]
+    execute -> compare
+  }
+custom_mark10
+</details>
+  
 ![ ](https://g.gravizo.com/svg? digraph D {  A -> {B, C, D} -> {F} })
 
 ![Diagram Proses](https://g.gravizo.com/svg?  digraph G {size ="4,4"; main [shape=box];    main -> parse [weight=8];    parse -> execute;    main -> init [style=dotted];    main -> cleanup;    execute -> { make_string; printf}    init -> make_string;    edge [color=red];    main -> printf [style=bold,label="100 times"];    make_string [label="make a string"];    node [shape=box,style=filled,color=".7 .3 1.0"];    execute -> compare;  } )
