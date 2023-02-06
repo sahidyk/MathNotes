@@ -6,9 +6,9 @@ authors:
 type: book
 date: 2021-10-06
 lastMod: 2023-02-06
-#math: true
-#diagram: true
-#highlight: true
+math: true
+diagram: true
+highlight: true
 #image:
 #  placement: 3
 #  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)'
