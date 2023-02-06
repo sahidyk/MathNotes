@@ -25,7 +25,7 @@ Sebagaimana sudah diketahui secara umum, salah satu cara untuk menulis simbol, n
 
 Typora menggunakan MathJax untuk memproses perintah-perintah LaTeX. Semua contoh teks matematika pada dokumen ini diproses dengan MathJax pada editor Markdown **Typora**. Dokumen ini sekaligus menunjukkan sejauh mana kemampuan Typora dan MathJax dalam memproses perintah-perintah LaTeX. Typora juga dapat menampilkan nomor persamaan secara otomatis untuk ekspresi matematika pada modus *display*. 
 
-```latex
+```
 Fungsi Gamma, $\Gamma(z)$ didefinisikan sebagai:
 $$
 \Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
@@ -37,7 +37,7 @@ $$
 \Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
 $$
 
-```latex
+```
 Fungsi tersebut memenuhi $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$.
 ```
 
@@ -45,7 +45,7 @@ Fungsi tersebut memenuhi $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$.
 
 Contoh lain:
 
-```latex
+```
 Akar/penyelesaian persamaan kuadrat $ax^2+bx+c=0$ adalah:
 $$
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
@@ -59,13 +59,11 @@ $$
 
 1. Untuk menuliskan simbol/notasi/ekspresi matematika pada baris teks digunakan pengapit perintah LaTeX `$...$`. Untuk menampilkan simbol/notasi/ekspresi matematika pada baris terpisah digunakan pengapit perintah LaTeX  `$$...$$`.  (Pada beberapa editor, untuk modus *display*, Anda harus menuliskan pengapit `$$` di atas dan di bawah perintah LaTeX-nya. Pada kasus lain, bahkan Anda harus mengawali dan mengakhirinya dengan baris-baris kosong.) Misalnya, `$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$` akan menghasilkan tampilan $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$ di tengah teks, sedangkan 
   
-   ````
-   
+   ```
    $$
    \sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}.
    $$
-   
-   ````
+   ```
    
    menampilkan ekspresi pada baris tersendiri.
    $$
@@ -81,7 +79,7 @@ $$
    
    Berikut adalah contoh berganti model penulisan dalam persamaan yang ditampilkan.
    
-   ```latex
+   ```
    $$
    \sum_{n=1}^\infty \frac{1}{n^2} \to
      \textstyle \sum_{n=1}^\infty \frac{1}{n^2} \to
@@ -97,7 +95,7 @@ $$
    
    Juga dimungkinkan untuk melakukan pergantian model pada persamaan di baris teks.
    
-   ```latex
+   ```
    Bandingkan tampilan $\displaystyle \lim_{t \to 0} \int_t^1 f(t)\, dt$ dan $\lim_{t \to 0} \int_t^1 f(t)\, dt$.
    ```
    Bandingkan tampilan $\displaystyle \lim_{t \to 0} \int_t^1 f(t)\, dt$ dan $\lim_{t \to 0} \int_t^1 f(t)\, dt$.
@@ -121,7 +119,7 @@ $$
 
    yang menghasilkan $\Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr)$. Contoh:
 
-   ```latex
+   ```
    $$
    f \left( \left[ 
    \frac{1+\left\{x,y\right\}}{\left( \frac{x}{y}+\frac{y}{x}\right)\left(u+1\right)}+a
@@ -144,7 +142,7 @@ $$
    \right)
    $$
 
-   ```latex
+   ```
    $$
    \begin{aligned}
          a=&\left(1+2+3+  \cdots \right. \\
@@ -160,7 +158,7 @@ $$
    \end{aligned}
    $$
 
-   ```latex
+   ```
    $$
    \left\langle q \middle\| \frac{\frac{x}{y}}{\frac{u}{v}} \middle| p \right\rangle
    $$
