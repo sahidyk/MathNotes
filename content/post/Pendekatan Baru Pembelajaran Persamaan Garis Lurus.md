@@ -1,15 +1,23 @@
-latex input:	mmd-article-header  
-Title:			Pendekatan Baru Pembelajaran Persamaan Garis Lurus
-latex input:	mmd-article-begin-doc  
-latex footer:	mmd-memoir-footer 
-HTML header:   <script> MathJax = {tex: {tags: 'all'}}; </script><script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
+---
+title:  Pendekatan Baru Pembelajaran Persamaan Garis Lurus
+authors:
+- admin
 
-# Pendekatan Baru Pembelajaran Persamaan Garis Lurus
-<center>
-<b> Sahid </b> <br>
-Jurusan Pendidikan Matematika UNY<br>
-    <b><i>sahid@uny.ac.id</i></b><br> Desember 2021
-</center>
+type: book
+date: 2021-10-06
+lastMod: 2023-02-06
+math: true
+diagram: true
+highlight: true
+#image:
+#  placement: 3
+#  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)'
+---
+**Sahid**<br>
+**Jurusan Pendidikan Matematika, FMIPA, UNY**<br>
+*[sahid@uny.ac.id](mailto:sahid@uny.ac.id), [sahidyk@gmail.com](mailto:sahidyk@gmail.com)*
+
+{{< toc hide_on="xl" >}}
 
 ## Pendahuluan
 
