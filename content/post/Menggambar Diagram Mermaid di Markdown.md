@@ -1,13 +1,23 @@
-<h1 style="text-align:left"> Menggambar Diagram Mermaid di Markdown</h1>
+---
+title:  Menggambar Diagram Mermaid di Markdown
+authors:
+- admin
 
+type: book
+date: 2021-10-06
+lastMod: 2023-02-06
+math: true
+diagram: true
+highlight: true
+#image:
+#  placement: 3
+#  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)'
+---
+**Sahid**<br>
+**Jurusan Pendidikan Matematika, FMIPA, UNY**<br>
+*[sahid@uny.ac.id](mailto:sahid@uny.ac.id), [sahidyk@gmail.com](mailto:sahidyk@gmail.com)*
 
-**Sahid**
-
-Jurusan Pendidikan Matematika FMIPA UNY
-
-*[sahid@uny.ac.id](),  [sahidyk@gmail.com]()*
-
-
+{{< toc hide_on="xl" >}}
 
 ## Tentang Mermaid
 
