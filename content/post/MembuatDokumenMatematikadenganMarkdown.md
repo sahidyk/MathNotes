@@ -13,16 +13,11 @@ highlight: true
 #  placement: 3
 #  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)'
 ---
+**Sahid**<br>
+**Jurusan Pendidikan Matematika, FMIPA, UNY**<br>
+*[sahid@uny.ac.id](mailto:sahid@uny.ac.id), [sahidyk@gmail.com](mailto:sahidyk@gmail.com)*
 
-**Sahid**
-
-Jurusan Pendidikan Matematika, FMIPA Universitas Negeri Yogyakarta
-
-[sahid@uny.ac.id](), [sahidyk@gmail.com]() 
-
-
-
-
+{{< toc hide_on="xl" >}}
 
 ## LaTeX dan MathJax
 
