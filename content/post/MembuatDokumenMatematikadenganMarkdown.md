@@ -13,6 +13,7 @@ highlight: true
 #  placement: 3
 #  caption: 'Image credit: [**John Moeses Bauan**](https://unsplash.com/photos/OGZtQF8iC0g)'
 ---
+
 **Sahid**<br>
 **Jurusan Pendidikan Matematika, FMIPA, UNY**<br>
 *[sahid@uny.ac.id](mailto:sahid@uny.ac.id), [sahidyk@gmail.com](mailto:sahidyk@gmail.com)*
@@ -33,7 +34,6 @@ $$
 ```
 
 Fungsi Gamma, $\Gamma(z)$ didefinisikan sebagai:
-
 $$
 \Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
 $$
@@ -52,6 +52,7 @@ $$
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
 $$
 ```
+
 Akar/penyelesaian persamaan kuadrat $ax^2+bx+c=0$ adalah:
 
 $$
