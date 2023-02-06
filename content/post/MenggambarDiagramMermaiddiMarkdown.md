@@ -1399,7 +1399,7 @@ dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` a
 <details> 
 <summary></summary>
 custom_mark10
- digraph D {  A -> {B, C, D} -> {F} }
+ digraph D { size ="4,4"; A -> {B, C, D} -> {F}; }
 custom_mark10
 </details>
 
@@ -1426,7 +1426,7 @@ custom_mark11
 <details> 
 <summary></summary>
 custom_mark12
- digraph G {subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+ digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
 custom_mark12
 </details>
 
@@ -1434,7 +1434,7 @@ custom_mark12
 <details> 
 <summary></summary>
 custom_mark13
- digraph G { main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
+ digraph G { size ="4,4"; main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
 custom_mark13
 </details>
 
