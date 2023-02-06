@@ -1,0 +1,41 @@
+{{ $page := .}}
+{{ $type := $page.Type}}
+{{ $id := $page.Scratch.Get "id"}}
+{{ $row_start := $page.Scratch.Get "row_start"}}
+{{ $row_end := $page.Scratch.Get "row_end"}}
+{{ $time := $page.Scratch.Get "time" }}
+{{ $timesplit := split $time ":"}}
+{{ if eq $type "talk"}}
+<a href="{{$page.RelPermalink}}">
+{{end}}
+
+{{ if eq $type "talk"}}
+<h5><span class="workshop-talk-title">{{$page.Title}}</span>
+  {{range $page.Params.authors}}
+    <span class="workshop-talk-speaker">
+      {{ $author_scratch := newScratch }}
+      {{ $author_scratch.Set "link_author" "false"}}
+      {{ $author_scratch.Set "display_avatar" "true"}}
+      {{ partial "mention" (dict "context" . "scratch" $author_scratch)}}
+    </span>
+  {{end}}
+</h5>
+{{end}}
+{{ if eq $page.Type "break"}}
+  <h5>{{$page.Title}}</h5>
+  {{/* set background image */}}
+  {{ $image :=""}}
+  {{ $resource := ($page.Resources.ByType "image").GetMatch "*featured*" }}
+  {{ $anchor := $page.Params.image.focal_point | default "smart" }}
+  {{ with $resource }}
+    {{ $image = .Fill (printf "600x125 q90 %s" $anchor) }}
+  <script>
+    document.getElementById('{{$id}}').style.backgroundImage='url({{$image.RelPermalink}})'; // specify the image path here
+  </script>
+  {{end}}
+{{end}}
+{{ if eq $type "talk"}}
+</a>
+{{end}}
+
+

@@ -1,0 +1,209 @@
+{{ $ := .root }}
+{{ $st := .page }}
+
+{{ $talk := $st.Params.content.page_type | default "talk" }}
+{{ $break := $st.Params.content.break_type | default "break" }}
+{{ $talks := where $.Site.RegularPages "Type" $talk}}
+{{ $breaks := where $.Site.RegularPages "Type" $break}}
+
+{{/* Number or row per day and per type */}}
+{{ $nrows := newScratch }}
+{{ $nrows.Set $talk ( $st.Params.content.nrows_talk | default 2) }}
+{{ $nrows.Set $break ($st.Params.content.nrows_break | default 1 )}}
+
+{{/* Get Data */}}
+{{ $days := $st.Params.day }}
+{{ $schedule := newScratch}}
+{{ $nsessions := newScratch}}
+{{ $first_day := ""}}
+{{ range  $days}}
+  {{ $day := .date}}
+  {{ $nsessions.Set $day 0}}
+  {{ if eq $first_day ""}}{{$first_day = .date}}{{end}}
+  {{if eq (now.Format "2006-01-02") $day}}{{$first_day = .date}}{{end}}
+  {{ range $session_index, $session := .session}}
+    {{ $nsessions.Add $day 1}}
+    {{ $session_id := printf "%s-%d" $day $session_index }}
+    {{if eq $session.type "talk"}}
+      {{ if and $session.title (not (eq $session.title ""))}}
+        {{ $nrows.Add $session_id 1}}{{/* total number of row for this session */}}
+      {{end}}
+      {{ if or $session.location (or $session.chairperson $session.time_start)}}
+        {{ $nrows.Add $session_id 1}}{{/* total number of row for this session */}}
+      {{end}}
+      {{ range $talks }}
+        {{if eq ((time .Date).Format "2006-01-02") $day }}
+          {{ $nrow_thistalk := (.Params.nrows | default ($nrows.Get $talk)) }}
+          {{ $time_thistalk := ((time .Date).Format "15:04")}}
+          {{ $time_thistalk_end := ((time .Params.date_end).Format "15:04")}}
+          {{if and (ge $time_thistalk $session.time_start) (ge $session.time_end $time_thistalk_end )}}
+            {{ $schedule.SetInMap $session_id $time_thistalk .}} {{/* This talk must be added */}}
+            {{ $nrows.Add $session_id $nrow_thistalk}}{{/* total number of row for this session */}}
+          {{end}}
+        {{end}}
+      {{end}}
+    {{end}}
+    {{/* Breaks are different, they can be multiply used */}}
+    {{ range $breaks }}
+      {{$this_break := .}}
+      {{ if .Params.dates}}
+        {{ range .Params.dates}}
+            {{if eq ((time .start).Format "2006-01-02") $day }}
+              {{ $nrow_thisbreak := (.Params.nrows | default ($nrows.Get $break)) }}
+              {{ $time_thisbreak := ((time .start).Format "15:04")}}
+              {{ $time_thisbreak_end := ((time .end).Format "15:04")}}
+              {{if and (ge $time_thisbreak $session.time_start) (ge $session.time_end $time_thisbreak_end )}}
+                {{ $schedule.SetInMap $session_id $time_thisbreak  $this_break}}
+                {{ $nrows.Add $session_id $nrow_thisbreak}}{{/* total number of row for this session */}}
+              {{ end }}
+            {{end}}
+        {{end}}
+      {{else}}
+      {{/* use Date param */}}
+        {{if eq ((time .Date).Format "2006-01-02") $day }}
+          {{ $nrow_thisbreak := (.Params.nrows | default ($nrows.Get $break)) }}
+          {{ $time_thisbreak := ((time .start).Format "15:04")}}
+          {{ $time_thisbreak_end := ((time .end).Format "15:04")}}
+          {{if and (ge $time_thisbreak $session.time_start) (ge $session.time_end $time_thisbreak_end )}}
+            {{ $schedule.SetInMap $session_id $time_thisbreak .}} {{/* This talk must be added */}}
+            {{ $nrows.Add $session_id $nrow_thisbreak}}  {{/* total number of row for this session */}}
+          {{ end }}
+        {{end}}
+      {{end}}
+    {{end}}
+  {{end}}
+{{end}}
+
+{{/* Store the "middle" session of every day*/}}
+{{/*usefull for ordering for XL screen + 2 columns*/}}
+  {{ range  $days}}
+    {{ $day := .date}}
+    {{ $day_middle :=  printf "%s-middle" $day }}
+    {{ $nsessions.Set $day_middle  (div ($nsessions.Get $day) 2)}}
+    {{ if (gt (mod ($nsessions.Get $day) 2) 0)}}
+      {{ $nsessions.Add $day_middle 1}}
+    {{ end }}
+  {{end}}
+
+{{/* Rendering */}}
+
+<div class="section-heading">
+  <h1>{{ with $st.Title }}{{ . | markdownify }}{{ end }}</h1>
+  {{ with $st.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+</div>
+
+  <nav class="workshop">
+  <ul>
+    {{ range $day_index, $day := $days }}
+      <li id="workshop-nav-{{$day.date}}" class="workshop-nav btn btn-outline-primary" onclick="makeActive('{{$day.date}}')"><span class="xs">{{ (time $day.date).Format "02/01/2006" }}</span><span class="xl">{{ (time $day.date).Format "Monday 2 January 2006" }}</span></li>
+    {{end}}
+  </ul>
+</nav>
+{{ range $days }}
+  {{ $day := .date}}
+  {{ $day_columns := "1" }}
+  {{ if .columns }}
+    {{ $day_columns = .columns }}
+  {{end}}
+  <article id="workshop-day-{{$day}}" class ="workshop-day">
+    <h3>{{ (time $day).Format "Monday 2 January 2006" }}</h3>
+    <div class="session-container ncolumns-{{$day_columns}}">
+    {{ range $session_index, $session := .session}}
+      {{ $row_end := 1}}
+      {{ $row_start := $row_end}}
+      {{ $session_id := printf "%s-%d" $day $session_index }}
+      {{ $session_time_startsplit := split $session.time_start ":"}}
+      {{ $session_time_endsplit := split $session.time_end ":"}}
+      {{ $session_color := $session.color | default "black"}}
+      {{ $session_order := $session_index}}
+      {{ if eq $day_columns "2" }} {{/* 2 columns layout for XL Screen: change order */}}
+        {{ $day_middle :=  printf "%s-middle" $day }}
+        {{ $session_middle := $nsessions.Get $day_middle}}
+        {{ if (le (add $session_index 1) $session_middle )}}
+          {{$session_order = sub (mul (add $session_index 1) 2)  1}}
+        {{else}}
+          {{$session_order = mul 2 (sub (add $session_index 1) $session_middle)}}
+        {{end}}
+      {{end}}
+      <section id="workshop-session-{{$session_id}}" class="workshop-session workshop-session-{{$session.type}}"  style="--nrows:{{$nrows.Get $session_id}};--color_session:{{ $session_color}};--order:{{$session_order}};">
+        {{if eq $session.type "talk"}}
+          {{ if and $session.title (not (eq $session.title ""))}} 
+            {{ $row_end = add $row_start 1}}
+            <h4 style='--row_start:{{$row_start}};--row_end:{{$row_end}};'>{{ $session.title }}</h4>
+            {{ $row_start = $row_end}}
+          {{ end }}
+          {{ $row_end = add $row_start 1}}
+          <ul class="workshop-session-info"  style='--row_start:{{$row_start}};--row_end:{{$row_end}};'>
+            {{with $session.location  }}<li><i class="fas fa-map-marker-alt"></i> <span style="display:none">Location: </span>{{.}}</li>{{end}}
+            <li><i class="fas fa-clock"></i> <span style="display:none">Time: </span>{{index $session_time_startsplit 0}}:{{index $session_time_startsplit 1}} - {{index $session_time_endsplit 0}}:{{index $session_time_endsplit 1}}</li>
+            {{with $session.chairperson }}<li  class="workshop-session-chairperson"><i class="fas fa-user-clock"></i> <span class="title">Chairperson</span><span>{{ partial "mention" (dict "context" . "display_avatar" "false" "link_author" "false")}}</span></li>{{end}}
+          </ul>
+          {{ $row_start = $row_end}}
+        {{end}}
+        {{ range $time, $page := ($schedule.Get $session_id)}}
+          {{ $type := $page.Type}}
+          {{ $nrows_thisitem := ($page.Params.nrows | default ($nrows.Get $type))}}
+          {{ $row_end = add $row_start $nrows_thisitem}}
+          {{ $id := add (add $day "-") $time}}
+          {{/* assign data to the page */}}
+          {{ $page.Scratch.Set "row_start" $row_start}}
+          {{ $page.Scratch.Set "row_end" $row_end}}
+          {{ $page.Scratch.Set "time" $time}}
+          {{ $timesplit := split $time ":"}}
+          {{ $page.Scratch.Set "day" $day}}
+          {{ $page.Scratch.Set "id" $id }}
+          <div class="workshop-session-time" style='--row_start:{{$row_start}};--row_end:{{$row_end}};'>
+            <span class="hour">{{index $timesplit 0}}</span><span class="minut">:{{index $timesplit 1}}</span>
+          </div>
+          <div id='{{ $id }}' class="workshop-content workshop-content-{{$type}}"  style='--row_start:{{$row_start }};--row_end:{{$row_end }};'>
+            {{ partial "workshop_content" $page }}
+          </div>
+          {{ $row_start = $row_end}}
+        {{end}} {{/* end range schedule $day */}}
+      </section>
+    {{end}}
+  </article>
+{{end}} {{/* end range days */}}
+
+
+<script>
+  function navDisplay(){
+    var navbuttons = document.querySelectorAll("li.workshop-nav");
+    navbuttons.forEach(function(button) {
+      if(button.classList.contains("active"))
+      {
+        button.classList.add("btn-primary");
+        button.classList.remove("btn-outline-primary");
+      }
+      else
+      {
+        button.classList.add("btn-outline-primary");
+        button.classList.remove("btn-primary");
+      }
+    });
+  }
+
+  function makeActive(day) {
+    nav_id = "workshop-nav-" + day;
+    article_id = "workshop-day-" + day;
+    makeAllInactive();
+    document.getElementById(nav_id).classList.add("active");
+    navDisplay();
+    document.getElementById(article_id).classList.add("active");
+  }
+
+  function makeAllInactive() {
+    var navbuttons = document.querySelectorAll("li.workshop-nav");
+    navbuttons.forEach(function(button) {
+        button.classList.remove("active");
+    });
+    var navarticles = document.querySelectorAll("article.workshop-day");
+    navarticles.forEach(function(article) {
+      article.classList.remove("active");
+    });
+  }
+
+
+  navDisplay();
+  makeActive({{$first_day}})
+</script>
