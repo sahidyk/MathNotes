@@ -25,7 +25,7 @@ Mermaid merupakan program Javascript untuk pembuatan dan modifikasi diagram dan 
 
 > Jika Anda sudah terbiasa dengan dokumen Markdown, Anda seharusnya tidak akan kesulitan [mempelajari sintaks Mermaid.](https://mermaid-js.github.io/mermaid/#/./n00b-syntaxReference)
 
-![banner](https://mermaid-js.github.io/mermaid/img/header.png "Contoh-contoh Diagrama Mermaid")
+![banner](https://mermaid.js.org/header.png "Contoh-contoh Diagrama Mermaid")
 
 Tujuan utama Mermaid adalah untuk mempercepat pembuatan dokumentasi dalam proses pengembangan. Dalam proses pengembangan (software, misalnya), biasanya pembuatan diagram dan dokumentasi memerlukan banyak waktu berharga pengembang dan cepat usang ketika software-nya diperbarui. Di sisi lain, diagram dan dokumentasi sangat diperlukan dalam pengembangan software.
 
