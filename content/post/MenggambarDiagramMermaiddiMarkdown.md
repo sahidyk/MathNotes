@@ -1331,27 +1331,7 @@ dateFormat DD-MM-YYYY
     	
 ```
 
-### [Git graph - experimental](https://mermaid-js.github.io/mermaid/#/?id=git-graph-exclamation-experimental)
-
-```mermaid
-gitGraph:
-options
-{
-    "nodeSpacing": 150,
-    "nodeRadius": 10
-}
-end
-commit
-branch newbranch
-checkout newbranch
-commit
-commit
-checkout master
-commit
-commit
-merge newbranch
-```
-## Menggunakan [Gravizo](http://www.gravizo.com/) untuk menggambar diagram dengan DOT, PlantUML, dan UMLGraph
+### Menggunakan [Gravizo](http://www.gravizo.com/) untuk menggambar diagram dengan DOT, PlantUML, dan UMLGraph
 
 Sintaks untuk menggunakan **gravizo** adalah
 
@@ -1362,40 +1342,58 @@ Sintaks untuk menggunakan **gravizo** adalah
 </details>
 ```
 
-dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
+dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Tag `<details><summary></summary></details>` digunakan untuk menyembunyikan perintah-perintah **Gravizo**. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
 
 ![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
 custom_mark10
- digraph D { size ="4,4"; A -> {B, C, D} -> {F}; }
+  digraph G {
+    size ="4,4"
+    main [shape=box]
+    main -> parse [weight=8]
+    parse -> execute
+    main -> init [style=dotted]
+    main -> cleanup
+    execute -> { make_string; printf}
+    init -> make_string
+    edge [color=red]
+    main -> printf [style=bold,label="100 times"]
+    make_string [label="make a string"]
+    node [shape=box,style=filled,color=".7 .3 1.0"]
+    execute -> compare
+  }
 custom_mark10
 </details>
 
- ![Alt text](https://g.gravizo.com/source/custom_mark11?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-<details> 
-<summary></summary>
-custom_mark11
-  digraph G {size ="4,4"; 
-  main [shape=box];    
-  main -> parse [weight=8];    
-  parse -> execute;    
-  main -> init [style=dotted];   
-  main -> cleanup;    
-  execute -> { make_string; printf}    
-  init -> make_string;    edge [color=red];    
-  main -> printf [style=bold,label="100 times"];    
-  make_string [label="make a string"];    
-  node [shape=box,style=filled,color=".7 .3 1.0"];    
-  execute -> compare;  }
-custom_mark11
-</details>
-
-![Alt text](https://g.gravizo.com/source/custom_mark12?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+![Alt text](https://g.gravizo.com/source/svg/custom_mark12?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
 custom_mark12
- digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+/**
+*Structural Things
+*@opt commentname
+*@note Notes can
+*be extended to
+*span multiple lines
+*/
+class Structural{}
+
+/**
+*@opt all
+*@note Class
+*/
+class Counter extends Structural {
+        static public int counter;
+        public int getCounter();
+}
+
+/**
+*@opt shape activeclass
+*@opt all
+*@note Active Class
+*/
+class RunningCounter extends Counter{}
 custom_mark12
 </details>
 
@@ -1403,9 +1401,159 @@ custom_mark12
 <details> 
 <summary></summary>
 custom_mark13
- digraph G { size ="4,4"; main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
+@startuml
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
+User -> A: DoWork
+activate A
+A -> B: Create Request
+activate B
+B -> C: DoWork
+activate C
+C -> B: WorkDone
+destroy C
+B -> A: Request Created
+deactivate B
+A -> User: Done
+deactivate A
+@enduml
 custom_mark13
 </details>
+
+
+![Alt text](https://g.gravizo.com/source/custom_mark21?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+
+<details> 
+<summary></summary>
+custom_mark21	
+@startuml
+start
+:init;
+-> test of color;
+if (color?) is (<color:red>red) then
+:print red;
+else 
+:print not red;
+note right: no color
+endif
+partition End {
+:end;
+}
+-> this is the end;
+end
+@enduml
+custom_mark21
+</details>
+  
+![Alt text](https://g.gravizo.com/source/custom_mark20?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_mark20	
+@startwbs
+* Business Process Modelling WBS
+** Launch the project
+*** Complete Stakeholder Research
+*** Initial Implementation Plan
+** Design phase
+*** Model of AsIs Processes Completed
+**** Model of AsIs Processes Completed1
+**** Model of AsIs Processes Completed2
+*** Measure AsIs performance metrics
+*** Identify Quick Wins
+** Complete innovate phase
+@endwbs
+custom_mark20
+</details>
+
+![Alt text](https://g.gravizo.com/source/custom_mark21?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+
+<details> 
+<summary></summary>
+custom_mark21	
+@startuml
+start
+:init;
+-> test of color;
+if (color?) is (<color:red>red) then
+:print red;
+else 
+:print not red;
+note right: no color
+endif
+partition End {
+:end;
+}
+-> this is the end;
+end
+@enduml
+custom_mark21
+</details>
+  
+
+![Alt text](https://g.gravizo.com/source/custom_activity?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_activity
+@startuml;
+(*) --> if "Some Test" then
+  -->[true] "activity 1"
+  if "" then
+    -> "activity 3" as a3
+  else
+    if "Other test" then
+      -left-> "activity 5"
+    else
+      --> "activity 6"
+    endif
+  endif
+else
+  ->[false] "activity 2"
+endif
+a3 --> if "last test" then
+  --> "activity 7"
+else
+  -> "activity 8"
+endif
+@enduml
+custom_activity
+</details>
+
+![Alt text](https://g.gravizo.com/source/custom_svg?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+<details> 
+<summary></summary>
+custom_svg
+@gravizosvg
+{"svg": {
+		"@height": "450",
+		"@width": "450", 
+		"path": [
+			{"@id":"lineAB", "@d": "M 100 350 l 150 -300", "@stroke":"red"},
+			{"@id":"lineBC", "@d": "M 250 50 l 150 300", "@stroke":"red"},
+			{"@d":"M 100 350 q 150 -300 300 0", "@stroke":"blue", "@fill":"none"}
+    ],
+		"g": [
+			{"@stroke":"black", "circle":[  
+				{"@id":"pointA", "@cx":"100", "@cy":"350", "@r":"3"},
+				{"@id":"pointB", "@cx":"250", "@cy":"50", "@r":"3"},
+				{"@id":"pointC", "@cx":"400", "@cy":"350", "@r":"3"}
+			]},
+			{"text": [
+				{"@x":"100", "@y":"350", "@dx":"-30", "$":"A"},
+				{"@x":"250", "@y":"50", "@dy":"-10", "$":"B"},
+				{"@x":"400", "@y":"350", "@dx":"30", "$":"C"}
+			]}
+		]
+	}
+}
+custom_svg
+</details>
+ digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+
+
+
+ digraph G { size ="4,4"; main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
 
 ![Struktur Organisasi](https://g.gravizo.com/svg? digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
 
