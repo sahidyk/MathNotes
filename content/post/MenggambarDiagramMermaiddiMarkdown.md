@@ -1342,8 +1342,22 @@ Sintaks untuk menggunakan **gravizo** adalah
 </details>
 ```
 
-dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Tag `<details><summary></summary></details>` digunakan untuk menyembunyikan perintah-perintah **Gravizo**. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
+dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Tag `<details><summary></summary></details>` digunakan untuk menyembunyikan dan menampilkan perintah-perintah **Gravizo**. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
 
+<img src='https://g.gravizo.com/svg?
+digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+'/>
+<details><summary></summary> 
+digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+</details>  
+  
+<img src='https://g.gravizo.com/svg?
+digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
+'/>
+<details><summary></summary>
+digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
+</details>  
+  
 <img src='https://g.gravizo.com/svg?
   digraph G {
     size ="4,4";
@@ -1379,33 +1393,7 @@ digraph G {
   }
 </details>
 
-
-![Alt text](https://g.gravizo.com/source/custom_mark10?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-<details> 
-<summary></summary>
-custom_mark10
-  digraph G {
-    size ="4,4"
-    main [shape=box]
-    main -> parse [weight=8]
-    parse -> execute
-    main -> init [style=dotted]
-    main -> cleanup
-    execute -> { make_string; printf}
-    init -> make_string
-    edge [color=red]
-    main -> printf [style=bold,label="100 times"]
-    make_string [label="make a string"]
-    node [shape=box,style=filled,color=".7 .3 1.0"]
-    execute -> compare
-  }
-custom_mark10
-</details>
-
-![Alt text](https://g.gravizo.com/source/svg/custom_mark12?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-<details> 
-<summary></summary>
-custom_mark12
+<img src='https://g.gravizo.com/svg?
 /**
 *Structural Things
 *@opt commentname
@@ -1430,13 +1418,37 @@ class Counter extends Structural {
 *@note Active Class
 */
 class RunningCounter extends Counter{}
-custom_mark12
-</details>
+'/>
 
-![Alt text](https://g.gravizo.com/source/custom_mark13?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
-custom_mark13
+/**
+*Structural Things
+*@opt commentname
+*@note Notes can
+*be extended to
+*span multiple lines
+*/
+class Structural{}
+
+/**
+*@opt all
+*@note Class
+*/
+class Counter extends Structural {
+        static public int counter;
+        public int getCounter();
+}
+
+/**
+*@opt shape activeclass
+*@opt all
+*@note Active Class
+*/
+class RunningCounter extends Counter{}
+</details>
+
+<img src='https://g.gravizo.com/svg?
 @startuml
 actor User
 participant "First Class" as A
@@ -1455,13 +1467,30 @@ deactivate B
 A -> User: Done
 deactivate A
 @enduml
-custom_mark13
-</details>
- 
-![Alt text](https://g.gravizo.com/source/custom_mark20?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+'/>
 <details> 
 <summary></summary>
-custom_mark20	
+@startuml
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
+User -> A: DoWork
+activate A
+A -> B: Create Request
+activate B
+B -> C: DoWork
+activate C
+C -> B: WorkDone
+destroy C
+B -> A: Request Created
+deactivate B
+A -> User: Done
+deactivate A
+@enduml
+</details>
+ 
+<img src='https://g.gravizo.com/svg?
 @startwbs
 * Direktor
 ** Deputi 1
@@ -1476,14 +1505,26 @@ custom_mark20
 *** Administrasi
 ** Sekretaris
 @endwbs
-custom_mark20
-</details>
-
-![Alt text](https://g.gravizo.com/source/custom_mark21?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-
+'/>
 <details> 
 <summary></summary>
-custom_mark21	
+@startwbs
+* Direktor
+** Deputi 1
+*** Staf 1
+*** Staf 2
+*** Staf 3
+** Deputi 2
+*** Riset dan Pengembangan
+**** Penelitian dan Publikasi
+**** Kerja sama
+*** Keuangan
+*** Administrasi
+** Sekretaris
+@endwbs
+</details>
+
+<img src='https://g.gravizo.com/svg?
 @startuml
 start
 :Mulai;
@@ -1500,14 +1541,29 @@ partition Selesai {
 -> selesai di sini;
 end
 @enduml
-custom_mark21
+'/>
+<details> 
+<summary></summary>
+@startuml
+start
+:Mulai;
+-> Cek warna;
+if (Warna?) is (<Warna:Merah>Merah) then
+:Cetak merah;
+else 
+:Cetak bukan merah;
+note right: tanpa warna
+endif
+partition Selesai {
+:Selesai;
+}
+-> selesai di sini;
+end
+@enduml
 </details>
   
 
-![Alt text](https://g.gravizo.com/source/custom_activity?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-<details> 
-<summary></summary>
-custom_activity
+<img src='https://g.gravizo.com/svg?
 @startuml;
 (*) --> if "Tes awal" then
   -->[Lulus] "Kegiatan 1"
@@ -1529,13 +1585,33 @@ else
   -> "Kegiatan 8"
 endif
 @enduml
-custom_activity
-</details>
-
-![Alt text](https://g.gravizo.com/source/custom_svg?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
+'/>
 <details> 
 <summary></summary>
-custom_svg
+@startuml;
+(*) --> if "Tes awal" then
+  -->[Lulus] "Kegiatan 1"
+  if "" then
+    -> "Kegiatan 3" as a3
+  else
+    if "Tes lain" then
+      -left-> "Kegiatan 5"
+    else
+      --> "Kegiatan 6"
+    endif
+  endif
+else
+  ->[Tidak lulus] "Kegiatan 2"
+endif
+a3 --> if "Tes akhir" then
+  --> "Kegiatan 7"
+else
+  -> "Kegiatan 8"
+endif
+@enduml
+</details>
+
+<img src='https://g.gravizo.com/svg?
 @gravizosvg
 {"svg": {
 		"@height": "450",
@@ -1559,13 +1635,30 @@ custom_svg
 		]
 	}
 }
-custom_svg
+'/>
+<details> 
+<summary></summary>
+@gravizosvg
+{"svg": {
+		"@height": "450",
+		"@width": "450", 
+		"path": [
+			{"@id":"lineAB", "@d": "M 100 350 l 150 -300", "@stroke":"red"},
+			{"@id":"lineBC", "@d": "M 250 50 l 150 300", "@stroke":"red"},
+			{"@d":"M 100 350 q 150 -300 300 0", "@stroke":"blue", "@fill":"none"}
+    ],
+		"g": [
+			{"@stroke":"black", "circle":[  
+				{"@id":"pointA", "@cx":"100", "@cy":"350", "@r":"3"},
+				{"@id":"pointB", "@cx":"250", "@cy":"50", "@r":"3"},
+				{"@id":"pointC", "@cx":"400", "@cy":"350", "@r":"3"}
+			]},
+			{"text": [
+				{"@x":"100", "@y":"350", "@dx":"-30", "$":"A"},
+				{"@x":"250", "@y":"50", "@dy":"-10", "$":"B"},
+				{"@x":"400", "@y":"350", "@dx":"30", "$":"C"}
+			]}
+		]
+	}
+}
 </details>
- digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
-
-
-
- digraph G { size ="4,4"; main -> parse -> execute;  main -> init;  main -> cleanup;  execute -> make_string;  execute -> printf;  init -> make_string; main -> printf;  execute -> compare;}
-
-![Struktur Organisasi](https://g.gravizo.com/svg? digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
-
