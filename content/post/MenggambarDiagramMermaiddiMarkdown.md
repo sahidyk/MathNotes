@@ -1442,11 +1442,11 @@ start;
 :Mulai;
 -> Cek warna;
 if (Warna?) is (<Warna:Merah>Merah) then
-:Cetak merah;
+:Cetak merah
 else 
 :Cetak bukan merah;
 note right: tanpa warna;
-endif
+endif;
 partition Selesai {
 :Selesai;
 }
@@ -1478,7 +1478,7 @@ end;
 <img src='https://g.gravizo.com/svg?
 @startuml;
 (*) --> if "Tes awal" then
-  -->[Lulus] "Kegiatan 1"
+  -->[Lulus] "Kegiatan 1";
   if "" then
     -> "Kegiatan 3" as a3
   else
@@ -1486,16 +1486,16 @@ end;
       -left-> "Kegiatan 5"
     else
       --> "Kegiatan 6"
-    endif
+    endif;
   endif
 else
-  ->[Tidak lulus] "Kegiatan 2"
-endif
+  ->[Tidak lulus] "Kegiatan 2";
+endif;
 a3 --> if "Tes akhir" then
   --> "Kegiatan 7"
 else
   -> "Kegiatan 8"
-endif
+endif;
 @enduml
 '/>
 <details> 
