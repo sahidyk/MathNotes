@@ -1394,61 +1394,6 @@ digraph G {
 </details>
 
 <img src='https://g.gravizo.com/svg?
-/**
-*Structural Things
-*@opt commentname
-*@note Notes can
-*be extended to
-*span multiple lines
-*/
-class Structural{}
-
-/**
-*@opt all
-*@note Class
-*/
-class Counter extends Structural {
-        static public int counter;
-        public int getCounter();
-}
-
-/**
-*@opt shape activeclass
-*@opt all
-*@note Active Class
-*/
-class RunningCounter extends Counter{}
-'/>
-
-<details> 
-<summary></summary>
-/**
-*Structural Things
-*@opt commentname
-*@note Notes can
-*be extended to
-*span multiple lines
-*/
-class Structural{}
-
-/**
-*@opt all
-*@note Class
-*/
-class Counter extends Structural {
-        static public int counter;
-        public int getCounter();
-}
-
-/**
-*@opt shape activeclass
-*@opt all
-*@note Active Class
-*/
-class RunningCounter extends Counter{}
-</details>
-
-<img src='https://g.gravizo.com/svg?
 @startuml
 actor User
 participant "First Class" as A
