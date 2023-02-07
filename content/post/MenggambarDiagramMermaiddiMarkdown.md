@@ -1350,13 +1350,7 @@ digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node 
 <details><summary></summary> 
 digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
 </details>  
-  
-<img src='https://g.gravizo.com/svg?
-digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
-'/>
-<details><summary></summary>
-digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
-</details>  
+
   
 <img src='https://g.gravizo.com/svg?
   digraph G {
@@ -1394,44 +1388,51 @@ digraph G {
 </details>
 
 <img src='https://g.gravizo.com/svg?
-@startuml
-actor User
-participant "First Class" as A
-participant "Second Class" as B
-participant "Last Class" as C
-User -> A: DoWork
-activate A
-A -> B: Create Request
-activate B
-B -> C: DoWork
-activate C
-C -> B: WorkDone
-destroy C
-B -> A: Request Created
-deactivate B
-A -> User: Done
-deactivate A
+digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
+'/>
+<details><summary></summary>
+digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
+</details>  
+
+<img src='https://g.gravizo.com/svg?
+@startuml;
+actor User;
+participant "First Class" as A;
+participant "Second Class" as B;
+participant "Last Class" as C;
+User -> A: DoWork;
+activate A;
+A -> B: Create Request;
+activate B;
+B -> C: DoWork;
+activate C;
+C -> B: WorkDone;
+destroy C;
+B -> A: Request Created;
+deactivate B;
+A -> User: Done;
+deactivate A;
 @enduml
 '/>
 <details> 
 <summary></summary>
-@startuml
-actor User
-participant "First Class" as A
-participant "Second Class" as B
-participant "Last Class" as C
-User -> A: DoWork
-activate A
-A -> B: Create Request
-activate B
-B -> C: DoWork
-activate C
-C -> B: WorkDone
-destroy C
-B -> A: Request Created
-deactivate B
-A -> User: Done
-deactivate A
+@startuml;
+actor User;
+participant "First Class" as A;
+participant "Second Class" as B;
+participant "Last Class" as C;
+User -> A: DoWork;
+activate A;
+A -> B: Create Request;
+activate B;
+B -> C: DoWork;
+activate C;
+C -> B: WorkDone;
+destroy C;
+B -> A: Request Created;
+deactivate B;
+A -> User: Done;
+deactivate A;
 @enduml
 </details>
  
@@ -1470,40 +1471,40 @@ deactivate A
 </details>
 
 <img src='https://g.gravizo.com/svg?
-@startuml
-start
+@startuml;
+start;
 :Mulai;
 -> Cek warna;
 if (Warna?) is (<Warna:Merah>Merah) then
 :Cetak merah;
 else 
 :Cetak bukan merah;
-note right: tanpa warna
+note right: tanpa warna;
 endif
 partition Selesai {
 :Selesai;
 }
 -> selesai di sini;
-end
+end;
 @enduml
 '/>
 <details> 
 <summary></summary>
-@startuml
-start
+@startuml;
+start;
 :Mulai;
 -> Cek warna;
 if (Warna?) is (<Warna:Merah>Merah) then
 :Cetak merah;
 else 
 :Cetak bukan merah;
-note right: tanpa warna
+note right: tanpa warna;
 endif
 partition Selesai {
 :Selesai;
 }
 -> selesai di sini;
-end
+end;
 @enduml
 </details>
   
