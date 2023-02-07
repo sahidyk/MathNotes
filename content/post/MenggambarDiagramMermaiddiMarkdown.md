@@ -1437,36 +1437,36 @@ deactivate A;
 </details>
  
 <img src='https://g.gravizo.com/svg?
-@startwbs
-* Direktor
-** Deputi 1
-*** Staf 1
-*** Staf 2
-*** Staf 3
-** Deputi 2
-*** Riset dan Pengembangan
-**** Penelitian dan Publikasi
-**** Kerja sama
-*** Keuangan
-*** Administrasi
-** Sekretaris
+@startwbs;
+* Direktor;
+** Deputi 1;
+*** Staf 1;
+*** Staf 2;
+*** Staf 3;
+** Deputi 2;
+*** Riset dan Pengembangan;
+**** Penelitian dan Publikasi;
+**** Kerja sama;
+*** Keuangan;
+*** Administrasi;
+** Sekretaris;
 @endwbs
 '/>
 <details> 
 <summary></summary>
-@startwbs
-* Direktor
-** Deputi 1
-*** Staf 1
-*** Staf 2
-*** Staf 3
-** Deputi 2
-*** Riset dan Pengembangan
-**** Penelitian dan Publikasi
-**** Kerja sama
-*** Keuangan
-*** Administrasi
-** Sekretaris
+@startwbs;
+* Direktor;
+** Deputi 1;
+*** Staf 1;
+*** Staf 2;
+*** Staf 3;
+** Deputi 2;
+*** Riset dan Pengembangan;
+**** Penelitian dan Publikasi;
+**** Kerja sama;
+*** Keuangan;
+*** Administrasi;
+** Sekretaris;
 @endwbs
 </details>
 
