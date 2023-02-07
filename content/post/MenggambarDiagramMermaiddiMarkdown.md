@@ -1306,7 +1306,7 @@ dateFormat DD-MM-YYYY
 	title Rencana Kegiatan Tahun 2023
 	
 	section	Pelatihan Profesional
-		Pelatihan Markdown	 : done, Pel1, 10-03-2023 20-04-2023
+		Pelatihan Markdown	 : done, Pel1, 10-03-2023, 20-04-2023
 		Pelatihan Python  	 : Pel2, 15-03-2023, 10-05-2023
 		Pelatihan R		  	 : Pel3, after Pel1, 30d
 		Pelatihan Sains Data : active, Pel4, after Pel2, 21d
@@ -1351,7 +1351,7 @@ commit
 commit
 merge newbranch
 ```
-<h2 style="text-align:left">Menggunakan <a href=http://www.gravizo.com/><b> gravizo</b></a> untuk menggambar diagram dengan <b>DOT</b>, <b>PlantUML</b>, dan <b>UMLGraph</b> di Typora</h2>
+## Menggunakan [Gravizo](http://www.gravizo.com/) untuk menggambar diagram dengan DOT, PlantUML, dan UMLGraph
 
 Sintaks untuk menggunakan **gravizo** adalah
 
