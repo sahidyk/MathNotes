@@ -25,7 +25,7 @@ Mermaid merupakan program Javascript untuk pembuatan dan modifikasi diagram dan 
 
 > Jika Anda sudah terbiasa dengan dokumen Markdown, Anda seharusnya tidak akan kesulitan [mempelajari sintaks Mermaid.](https://mermaid-js.github.io/mermaid/#/./n00b-syntaxReference)
 
-![banner](https://mermaid.js.org/header.png "Contoh-contoh Diagrama Mermaid")
+![banner](https://mermaid.js.org/header.png "Contoh-contoh Diagram Mermaid")
 
 Tujuan utama Mermaid adalah untuk mempercepat pembuatan dokumentasi dalam proses pengembangan. Dalam proses pengembangan (software, misalnya), biasanya pembuatan diagram dan dokumentasi memerlukan banyak waktu berharga pengembang dan cepat usang ketika software-nya diperbarui. Di sisi lain, diagram dan dokumentasi sangat diperlukan dalam pengembangan software.
 
@@ -1276,91 +1276,60 @@ Cara membaca diagram di atas adalah sebagai berikut:
 + Setiap pesanan hanya boleh memiliki satu alamat pengiriman
 + dan seterusnya. 
 
-### [User Journey Diagram](https://mermaid-js.github.io/mermaid/#/user-journey)
+### [Diagram Perjalanan Pengguna](https://mermaid-js.github.io/mermaid/#/user-journey)
+>Diagram Perjalanan menjelaskan pada tingkat detail yang tinggi langkah-langkah apa yang diambil oleh pengguna yang berbeda untuk menyelesaikan tugas tertentu dalam sistem, aplikasi, atau situs web. Teknik ini menunjukkan alur kerja pengguna saat ini (sebagaimana adanya), dan menunjukkan area perbaikan untuk alur kerja yang akan datang. (Wikipedia)
+
+Setiap perjalanan pengguna dibagi menjadi beberapa bagian yang menjelaskan bagian tugas yang sedang diselesaikan pengguna.
+
+Sintaks tugas adalah `Nama tugas: <skor>: <daftar pelaku, dipisahkan dengan koma>`
 
 ```mermaid
 journey
-    title My working day
-    section Go to work
-      Make tea: 5: Me
-      Go upstairs: 3: Me
-      Do work: 1: Me, Cat
-    section Go home
-      Go downstairs: 5: Me
-      Sit down: 5: Me
+    title Aktivitas Harianku
+    section Pergi Bekerja
+      Menyiapkan kendaraan: 2: Aku
+      Perjalanan ke sekoah: 5: Istri
+      Perjalanan ke kampus: 3: Aku
+      Mengajar: 2: Aku
+      Mengajar: 6: Istri
+    section Pulang ke rumah
+      Perjalanan pulang: 6: Aku
+      Perjalanan pulang: 5: Istri
+      Istrirahat: 5: Istri
 ```
 
-
->
-> diagram perjalanan (*user journey*), dan diagram penjadwalan proyek (*Gantt chart*). 
-
 ### [Diagram Penjadwalan Proyek (*Gantt*)](https://mermaid-js.github.io/mermaid/#/gantt)
-
 
 ```mermaid
 gantt 
 dateFormat DD-MM-YYYY
-	title Rencana Kegiatan Tahun 2021
+	title Rencana Kegiatan Tahun 2023
 	
 	section	Pelatihan Profesional
-		Pelatihan Markdown	 : done, Pel1, 10-03-2021, 20-04-2021
-		Pelatihan Python  	 : Pel2, 15-03-2021, 10-05-2021
+		Pelatihan Markdown	 : done, Pel1, 10-03-2023 20-04-2023
+		Pelatihan Python  	 : Pel2, 15-03-2023, 10-05-2023
 		Pelatihan R		  	 : Pel3, after Pel1, 30d
 		Pelatihan Sains Data : active, Pel4, after Pel2, 21d
 		
 	section PPM
-		Kontak dengan Mitra : PPM1, 15-04-2021, 20-05-2021
-		Survei Lokasi		: done, PPM2, 30-04-2021, 10-06-2021
-		MoA dengan Mitra	: crit, PPM3, 30-06-2021, 2d
-		Penyiapan Bahan	PPM : PPM4, 01-03-2021, 30-07-2021
-		Pelaksanaan PPM		: crit, PPM5, 10-08-2021, 5d
-		Evaluasi dan Laporan: PPM6, 25-08-2021, 7d 
+		Kontak dengan Mitra : PPM1, 15-04-2023, 20-05-2023
+		Survei Lokasi		: done, PPM2, 30-04-2023, 10-06-2023
+		MoA dengan Mitra	: crit, PPM3, 30-06-2023, 2d
+		Penyiapan Bahan	PPM : PPM4, 01-03-2023, 30-07-2023
+		Pelaksanaan PPM		: crit, PPM5, 10-08-2023, 5d
+		Evaluasi dan Laporan: PPM6, 25-08-2023, 7d 
 
 	section Penelitian
-    	Sosialisasi 			: Pen1, 15-01-2021, 14d
-    	Penerimaan Proposal 	: done, Pen2, 20-01-2021, 14d
+    	Sosialisasi 			: Pen1, 15-01-2023, 14d
+    	Penerimaan Proposal 	: done, Pen2, 20-01-2023, 14d
     	Evaluasi Proposal 		: crit, Pen3, after Pen2, 7d
     	Pengumuman dan Kontrak 	: Pen4, after Pen3, 7d
-    	Seminar Proposal		: crit, Pen5, 10-03-2021, 5d
-    	Pelaksanaan & Monitoring: Pen6, 20-02-2021, 20-10-2021
+    	Seminar Proposal		: crit, Pen5, 10-03-2023, 5d
+    	Pelaksanaan & Monitoring: Pen6, 20-02-2023, 20-10-2023
     	Seminar Hasil			: Pen7, after Pen6, 5d
     	Laporan					: Pen8, after Pen7, 5d
     	
 ```
-
-```mermaid
-gantt
-    dateFormat  YYYY-MM-DD
-    title       Adding GANTT diagram functionality to mermaid
-    excludes    weekends
-    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
-
-    section A section
-    Completed task            :done,    des1, 2014-01-06,2014-01-08
-    Active task               :active,  des2, 2014-01-09, 3d
-    Future task               :         des3, after des2, 5d
-    Future task2              :         des4, after des3, 5d
-
-    section Critical tasks
-    Completed task in the critical line :crit, done, 2014-01-06,24h
-    Implement parser and jison          :crit, done, after des1, 2d
-    Create tests for parser             :crit, active, 3d
-    Future task in critical line        :crit, 5d
-    Create tests for renderer           :2d
-    Add to mermaid                      :1d
-
-    section Documentation
-    Describe gantt syntax               :active, a1, after des1, 3d
-    Add gantt diagram to demo page      :after a1  , 20h
-    Add another diagram to demo page    :doc1, after a1  , 48h
-
-    section Last section
-    Describe gantt syntax               :after doc1, 3d
-    Add gantt diagram to demo page      :20h
-    Add another diagram to demo page    :48h
-```
-
-
 
 ### [Git graph - experimental](https://mermaid-js.github.io/mermaid/#/?id=git-graph-exclamation-experimental)
 
