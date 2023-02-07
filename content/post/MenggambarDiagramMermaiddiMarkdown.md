@@ -1421,48 +1421,24 @@ deactivate A
 @enduml
 custom_mark13
 </details>
-
-
-![Alt text](https://g.gravizo.com/source/custom_mark21?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
-
-<details> 
-<summary></summary>
-custom_mark21	
-@startuml
-start
-:init;
--> test of color;
-if (color?) is (<color:red>red) then
-:print red;
-else 
-:print not red;
-note right: no color
-endif
-partition End {
-:end;
-}
--> this is the end;
-end
-@enduml
-custom_mark21
-</details>
-  
+ 
 ![Alt text](https://g.gravizo.com/source/custom_mark20?https%3A%2F%2Fraw.githubusercontent.com%2FTLmaK0%2Fgravizo%2Fmaster%2FREADME.md)
 <details> 
 <summary></summary>
 custom_mark20	
 @startwbs
-* Business Process Modelling WBS
-** Launch the project
-*** Complete Stakeholder Research
-*** Initial Implementation Plan
-** Design phase
-*** Model of AsIs Processes Completed
-**** Model of AsIs Processes Completed1
-**** Model of AsIs Processes Completed2
-*** Measure AsIs performance metrics
-*** Identify Quick Wins
-** Complete innovate phase
+* Direktor
+** Deputi 1
+*** Staf 1
+*** Staf 2
+*** Staf 3
+** Deputi 2
+*** Riset dan Pengembangan
+**** Penelitian dan Publikasi
+**** Kerja sama
+*** Keuangan
+*** Administrasi
+** Sekretaris
 @endwbs
 custom_mark20
 </details>
@@ -1474,18 +1450,18 @@ custom_mark20
 custom_mark21	
 @startuml
 start
-:init;
--> test of color;
-if (color?) is (<color:red>red) then
-:print red;
+:Mulai;
+-> Cek warna;
+if (Warna?) is (<Warna:Merah>Merah) then
+:Cetak merah;
 else 
-:print not red;
-note right: no color
+:Cetak bukan merah;
+note right: tanpa warna
 endif
-partition End {
-:end;
+partition Selesai {
+:Selesai;
 }
--> this is the end;
+-> selesai di sini;
 end
 @enduml
 custom_mark21
@@ -1497,24 +1473,24 @@ custom_mark21
 <summary></summary>
 custom_activity
 @startuml;
-(*) --> if "Some Test" then
-  -->[true] "activity 1"
+(*) --> if "Tes awal" then
+  -->[Lulus] "Kegiatan 1"
   if "" then
-    -> "activity 3" as a3
+    -> "Kegiatan 3" as a3
   else
-    if "Other test" then
-      -left-> "activity 5"
+    if "Tes lain" then
+      -left-> "Kegiatan 5"
     else
-      --> "activity 6"
+      --> "Kegiatan 6"
     endif
   endif
 else
-  ->[false] "activity 2"
+  ->[Tidak lulus] "Kegiatan 2"
 endif
-a3 --> if "last test" then
-  --> "activity 7"
+a3 --> if "Tes akhir" then
+  --> "Kegiatan 7"
 else
-  -> "activity 8"
+  -> "Kegiatan 8"
 endif
 @enduml
 custom_activity
