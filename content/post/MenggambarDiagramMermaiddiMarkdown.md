@@ -1345,16 +1345,35 @@ Sintaks untuk menggunakan **gravizo** adalah
 dengan `<perintah` adalah perintah untuk menggambar jenis diagram, `<ID-objek` adalah identitas diagram, dan `<elemen-elemen objek` adalah daftar sintaks untuk menghasilkan elemen-elemen diagram dipisahkan dengan titik koma - tidak boleh menggunakan ENTER. Tag `<details><summary></summary></details>` digunakan untuk menyembunyikan dan menampilkan perintah-perintah **Gravizo**. Karena menggunakan layanan gratis dari situs **Gravizo**, pada diagram yang dihasilkan ditampilkan tulisan/logo **Gravizo**. Berikut adalah contoh-contoh diagram yang dihasilkan dengan menggunakan layanan situs **Gravizo**.
 
 <img src='https://g.gravizo.com/svg?
-digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+digraph G {size ="4,4"; 
+          subgraph cluster_0 {style=filled;  color=lightgrey; 
+          node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} 
+          subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	
+          Mulai -> P0; 
+          Mulai -> R0;	
+          P1 -> R3;	
+          R2 -> P3;	
+          P3 -> P0;	
+          P3 -> Selesai;	
+          R3 -> Selesai;}
 '/>
 <details><summary></summary> 
-digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	Mulai -> P0; Mulai -> R0;	P1 -> R3;	R2 -> P3;	P3 -> P0;	P3 -> Selesai;	R3 -> Selesai;}
+digraph G {size ="4,4"; 
+          subgraph cluster_0 {style=filled;  color=lightgrey; 
+          node [style=filled, color=yellow]; P0 -> P1 -> P2 -> P3;} 
+          subgraph cluster_1 {node [style=filled]; R0 -> R1 -> R2 -> R3;}	
+          Mulai -> P0; 
+          Mulai -> R0;	
+          P1 -> R3;	
+          R2 -> P3;	
+          P3 -> P0;	
+          P3 -> Selesai;	
+          R3 -> Selesai;}
 </details>  
 
   
 <img src='https://g.gravizo.com/svg?
-  digraph G {
-    size ="4,4";
+  digraph G {size ="4,4";
     main [shape=box];
     main -> parse [weight=8];
     parse -> execute;
@@ -1370,8 +1389,7 @@ digraph G {size ="4,4"; subgraph cluster_0 {style=filled; color=lightgrey; node 
   }
 '/>
 <details><summary></summary>
-digraph G {
-    size ="4,4";
+digraph G {size ="4,4";
     main [shape=box];
     main -> parse [weight=8];
     parse -> execute;
@@ -1388,10 +1406,16 @@ digraph G {
 </details>
 
 <img src='https://g.gravizo.com/svg?
-digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
+digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; 
+          Direktur->{Sekretaris Deputy1 Deputy2 BusinessManager} 
+          Deputy1->{Staf1 Staf2 Staf3} 
+          BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}}
 '/>
 <details><summary></summary>
-digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; Direktor->{Sekretaris Deputy1 Deputy2 BusinessManager} Deputy1->{Staf1 Staf2 Staf3} BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}})
+digraph hierarchy {node [shape=box, color=Blue, fill=Yellow]; edge [color=Blue]; 
+          Direktur->{Sekretaris Deputy1 Deputy2 BusinessManager} 
+          Deputy1->{Staf1 Staf2 Staf3} 
+          BusinessManager->ITManager {rank=same;ITManager Staf1 Staf2}}
 </details>  
 
 <img src='https://g.gravizo.com/svg?
@@ -1439,18 +1463,12 @@ deactivate A;
 <img src='https://g.gravizo.com/svg?
 @startuml;
 start;
-:Mulai;
--> Cek warna;
-if (Warna?) is (<Warna:Merah>Merah) then
-:Cetak merah
-else 
-:Cetak bukan merah;
-note right: tanpa warna;
+:Mulai -> Cek warna;
+if (Warna?) is (<Warna:Merah>Merah) then Cetak merah
+  else  :Cetak bukan merah;
+  note right: tanpa warna;
 endif;
-partition Selesai {
-:Selesai;
-}
--> selesai di sini;
+partition Selesai { :Selesai; } -> Selesai di sini;
 end;
 @enduml
 '/>
@@ -1524,7 +1542,7 @@ endif
 </details>
 
 <img src='https://g.gravizo.com/svg?
-@gravizosvg
+@gravizosvg;
 {"svg": {
 		"@height": "450",
 		"@width": "450", 
